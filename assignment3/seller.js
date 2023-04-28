@@ -11,5 +11,5 @@ function generate_seller(){
     result += "<li>" + grammars.GenerationSimple(seller) + "</li>";
   }
   result += "</ol>";
-  io.write_into_element(result, "Sellers")
+  io.write_into_element(result, "sellers")
 }

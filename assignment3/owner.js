@@ -11,5 +11,5 @@ function generate_owner(){
     result += "<li>" + grammars.GenerationSimple(owner) + "</li>";
   }
   result += "</ol>";
-  io.write_into_element(result, "Owners")
+  io.write_into_element(result, "owners")
 }
