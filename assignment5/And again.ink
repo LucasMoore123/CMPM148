@@ -4,7 +4,7 @@ VAR golden_coin = false
 VAR chosen_vault = 0
 VAR training_step = 0
 VAR info = 0
-Your name is Alex. You are a high level government official. You have access to high level technology and have many trusted people around you. Unfortunately, you ran into an unfortunate situation. Your vault, which holds on to most of your valuable possessions, was robbed. The robbers broke into the vault, stole or damaged most of your valuable possessions, and left. While a team is tracking them down, you realize you may be able to take things into your own hands. Since you are a lead developer on some very experimental technology, you have access to many restricted areas. Recently, your lab has been testing some temporary time travel, with the ability to create checkpoints in time that can be revisited. While the technology is still very new, you believe that this could be an alternate solution to your problem. If you can sneak into the bank before the robbers show up and grab some of the money, you would be able to survive while figuring out the rest of the issues. In order to do this, you have assembled a team of your most trusted colleagues. Your plan is to steal the time travel device, and use it to heist the bank of your items. Unfortunately, you have never used the device before. In order to make sure it functions, you need to run some preliminary tests. Luckily, you know of some secret facilities. You stuck them with your own men, and get ready for your training. Before this, you make an attempt to get as much information as you can on the device you will be using. -> info_section
+Your name is Alex. You are a high level government official. You have access to high level technology and have many trusted people around you. Unfortunately, you ran into an unfortunate situation. Your vault, which holds on to most of your valuable possessions, was robbed. The robbers broke into the vault, stole or damaged most of your valuable possessions, and left. While a team is tracking them down, you realize you may be able to take things into your own hands. Since you are a lead developer on some very experimental technology, you have access to many restricted areas. Recently, your lab has been testing some temporary time travel, with the ability to create checkpoints in time that can be revisited. While the technology is still very new, you believe that this could be an alternate solution to your problem. If you can sneak into the bank before the robbers show up and grab some of the money, you would be able to survive while figuring out the rest of the issues. In order to do this, you have assembled a team of your most trusted colleagues. Your plan is to steal the time travel device, and use it to heist the bank of your items. Unfortunately, you have never used the device before. In order to make sure it functions, you need to run some preliminary tests. Luckily, you know of some secret facilities. You stock them with your own men, and get ready for your training. Before this, you make an attempt to get as much information as you can on the device you will be using. -> info_section
 
 === info_section
 *   What is this device?
@@ -22,7 +22,7 @@ Your name is Alex. You are a high level government official. You have access to 
 *{info == 4}[Begin Training] -> training_1
     
 === training_1 ===
-Your first training exercise began with simple device usage. You begin by using the device in real time to figure out how to use it. The instructions provided told you that there are two buttons. One creates a checkpoint in time and the other allows you to return to it. Your first exercise was to attempt to sneak past a set of guards.
+Your first training exercise began with simple device usage. You began by using the device in real time to figure out how to use it. The instructions provided told you that there are two buttons. One creates a checkpoint in time and the other allows you to return to it. Your first exercise was to attempt to sneak past a set of guards.
 *   [Begin exercise 1] -> exercise_1
 
 === exercise_1 ===
@@ -62,7 +62,8 @@ You start at the end of a hallway. In front of you is a two way intersection.
     * * [Press the green button] -> exercise_1
     
 === pre_mission ===
-Once you completed your first set of training, you return to the facility. Unfortunately, there is not much time left for you. A fellow official has notified you that they have reported the device as missing. If you want to complete your mission, you will have to go now. Are you prepared for this?
+Once you completed your first set of training, you return to the facility. Unfortunately, one of your officials finds you and notifies you that there is word that the device you are using has been stolen. While you were planning on doing more training exercises, now is not the time. You scramble to the briefing room.
+In the briefing room, you go over your mission. There is a vault, holding most of your possessions, at the National Treasury. You are to enter the building, as you have done so many times, and talk to the receptionist. From there, you will be able to enter the vault if you please. You will enter the vault, grab as much as you can, and exit. Once you exit, you will return to the position you started in. Then, the time rift can end. Unfortunately, during preliminary testing you noticed some minor memory loss during the teleportations. Hopefully it isn't amplified when you go back in time. Are you ready for your mission?
 *   [Yes]
     You talk with your follow officers, and get set up for your mission. You lay down in the bed, and wait for it to begin.
     * * [Wake up] -> awake
@@ -207,15 +208,29 @@ As conciousness slowly returns to you, you find yourself laying on the ground in
     -> loop_2
 
 === waiting_room ===
-After waiting for a few minutes a man in a black suit approaches you. You get up, and being to follow him. He takes you through a set of big doors on the right side of the room. As you walk, you take note of your surroundings. Armed guards, multiple cameras, many different kinds of locked doors. Eventually you reach the end of the hallway. Ahead of you is a door with multiple forms of security. The man you were following walks up to the door. He scans his face, followed by his pointer finger, followed by a long code into the keypad on the door. He turns to you.
-"You will have 10 minutes alone in the vault. At that time, I will come back and open the door. If you wish to leave early, there is a button by the door."
-He opens the door, and you walk forward into the vault. As you walk into the vault, you make sure to click the red button.
-~mistakes = 0
--> loop_3
+{golden_coin == false: As you sit in the waiting room, you begin to wonder. What is the purpose of this golden coin? You can't remember why you have it, or if there was anything important to use it for. Can you think of anything?}
+{golden_coin == true: As you sit in the waiting room, you wonder why she accepted the coin. At this point, you aren't sure what the next step is. Eventually, a man in a suit approaches you and gestures for you to follow him.}
+*{golden_coin == true}[Follow the man] -> hallway
+*{golden_coin == false}[Give the receptionist the coin]
+~golden_coin = true
+    You decide to give the coin to the receptionist. She nods at you and gestures back to the chairs you were sitting on.
+    * * [Sit back down]
+    You sit back down in the chair. Eventually, a man approaches you. He gestures for you to follow him forward.
+    * * * [Follow the man] -> hallway
+*{golden_coin == false}[Save the coin for later]
+    You decide to hold onto the coin. Eventually, a man approaches you. He gestures for you to follow him forward.
+    * * [Follow the man] -> hallway
 
+
+
+=== hallway ===
+~mistakes = 0
+As you follow the man into the hallway, you realize what you are dealing with. The hallway is softly lit. The marble floors are polished. As you approach the vault, you notice the reinforced steel doors. Equipped with state of the art biometric scanners, these doors are extremely secure. Advanced surveillance equipment and mition sensors silently track any unauthorized movement. Security cameras monitor every angle with precision. As you walk, you notice a set of laser beams on the ground. They monitor your every step. The door that you finally reach is state of the art. It is full of many different checks, which the man who you followed begins dealing with. It starts with an eye scan, then a fingerprint, followed by a long alphanumeric passcode and a maze puzzle. Finally, the last lock is completed and the man puts his hand on the door.
+"In order to guarantee security, we can not leave you in here for too long. I will give you 5 minutes to grab what you need. Once the time is up, I will come back."
+*   [Enter the vault] ->loop_3
 === loop_3 ===
 {mistakes == 0: As you walk into the vault, you take a look around. The vault consists of 6 doors perfectly split into segments. Each of the 5 vault doors has a display above it. The door opposite from you has your name displayed. All of the other displays are empty. The room is obviously temperature controlled, and the design is very sleek. Dark colors, bright lights, subtle details.}
-You walk towards your vault, and a facial scan system scans you. Once the scan is done, the door begins to open. As the door swings open, you are greeted with a walk-in vault. You step forward into the vault, and begin to look through the inidividual storage segments. The wall has almost 150 different segments, and you know you won't have time to explore them all. You must make a decision on which vaults you want to access.
+You walk forward to your vault door, making sure to press the red button. You scan your face, and give your fingerprint. The big doors begin to open. As the door turns, you are faced with a wall piled high with storage units. Each one looks fairly secure, and you must use your fingerprint to open each one. Sadly, you know your time here is limited. You only have 5 minutes to grab whatever you can think of. You stare at the wall. Each one is numbered, from 1 all the way to 150. You know you must be fast, so you select a small group and begin grabbing.
 *   [1-10]
     You begin opening the segments. It seems like all of these contain cash. You begin unloading from the vaults, taking stacks and stacks and piling them into your briefcase. You know your time is up shortly.
     ~chosen_vault = 1
@@ -261,7 +276,7 @@ You walk towards your vault, and a facial scan system scans you. Once the scan i
     ~chosen_vault = 11
     -> contemplation
 *   [111-120]
-    You begin opening the segments. EEach one is full of first edition books and rare historical readings. You pile them into your briefcase. You are racing.
+    You begin opening the segments. Each one is full of first edition books and rare historical readings. You pile them into your briefcase. You are racing.
     ~chosen_vault = 12
     -> contemplation
 *   [121-130]
@@ -301,8 +316,11 @@ You walk through the doors to reveal a long hallway similar to the one on the ot
 *   [Return home] -> home
 
 === security ===
-You walk back towards the security checkpoint. The guards look at you, but nobody bats an eye. You walk out the front door. When you get outside you continue forward until you are back in the alleyway. You walk back to where you woke up, and lay down.
-*   [Return home] -> home
+You walk back towards the security checkpoint. You remember the disaster that happened previously. Sweating, you walk up to security. You put your briefcase through the exit scanner, and walk through the metal detectors. The detector rings, and the guard looks at you.
+*   [Explain]
+    "Look guys, I just came through here. It was obviously something from my vault, and I would appreciate keeping the contents private."
+    The guards look confused at first, then nod and let you walk out. You return to the alleyway and sit back down where you left off.
+    * * [Return home] -> home
 
 === home ===
 {mistakes < 10: As you regain conciousness you realize you are in a hospital bed. There are many wires connected to you. The room is empty, and you can see what looks to be some kind of facility in the distance. Eventually a doctor walks into the room and sees you are awake. He disconnects the wires from you, and helps you up. You walk with him into what looks like a command room. You walk up to the man who seems like he's in charge.}
