@@ -54,7 +54,7 @@ function checkFail() {
       if (resources[x].value < 0) {failures.push({rsource: resources[x].key, level: "low"})}
   }
   for (x in resource_high){
-    if (resources["drama"].value > 100) {failures.push({resource: resources["drama"].key, level: "high"})}
+    if (resources[x].value > 100) {failures.push({resource: resources[x].key, level: "high"})}
   }
    console.log(failures)
   for (x in failures){
