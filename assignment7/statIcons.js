@@ -14,7 +14,7 @@ function addResource(key, amount){
         resources[x].value = 100;
       }
       if (resources == "drama" && resources[x].value < 0){
-        resources[x].value = 0
+        resources[x].value = 0;
       }
     }
   }
