@@ -7,14 +7,14 @@ let resources = [
 
 function addResource(key, amount) {
   // Makes sure values stay within bounds if not hitting a fail condition.
-  resources[x].value += amount;
+  resources[key].value += amount;
   // Limits meat and veggies to max of 100
-  if(x == 'meat' || x == 'veggies'){
-    if(resources[x].value > 100){
-      resources[x].value = 100;
+  if(key == 'meat' || key == 'veggies'){
+    if(resources[key].value > 100){
+      resources[key].value = 100;
     }
-  } else if (x == 'drama' && resources[x].value < 0){
-    resources[x].value = 0;
+  } else if (key == 'drama' && resources[key].value < 0){
+    resources[key].value = 0;
   }
 }
 
