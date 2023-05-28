@@ -5,18 +5,16 @@ let resources = [
   {key: "stars", value: 50, image: "./images/star.svg"}
 ]
 
-function addResource(key, amount){
+function addResource(key, amount) {
   // Makes sure values stay within bounds if not hitting a fail condition.
-  for (x in resources){
-    if (key == resources[x].key){
-      resources[x].value += amount;
-      if (resources[x].value > 100 && resources != "drama" && resources != "stars"){
-        resources[x].value = 100;
-      }
-      if (resources == "drama" && resources[x].value < 0){
-        resources[x].value = 0;
-      }
+  resources[x].value += amount;
+  // Limits meat and veggies to max of 100
+  if(x == 'meat' || x == 'veggies'){
+    if(resource[x].value > 100){
+      resources[x].value = 100;
     }
+  } else if (x == 'drama' && resource[x].value < 0){
+    resource[x].value = 0;
   }
 }
 
