@@ -10,11 +10,11 @@ function addResource(key, amount) {
   resources[x].value += amount;
   // Limits meat and veggies to max of 100
   if(x == 'meat' || x == 'veggies'){
-    if(resource[x].value > 100){
+    if(resources[x].value > 100){
       resources[x].value = 100;
     }
-  } else if (x == 'drama' && resource[x].value < 0){
-    resource[x].value = 0;
+  } else if (x == 'drama' && resources[x].value < 0){
+    resources[x].value = 0;
   }
 }
 
