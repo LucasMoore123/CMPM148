@@ -50,15 +50,11 @@ function updateMeters() {
 
 function checkFail() {
   failures = []
-  resource_low = ["meat", "veggies", "stars"]
-  resource_high = ["stars", "drama"]
-    for (x in resource_low) {
-      if (resources[x].value < 0) {failures.push({resource: resources[x].key, level: "low"})}
-  }
-  for (x in resource_high){
+  for (x in resources) {
     if (resources[x].value > 100) {failures.push({resource: resources[x].key, level: "high"})}
-  }
-   console.log(failures)
+    if (resources[x].value < 0) {failures.push({resource: resources[x].key, level: "low"})}
+}
+  console.log(failures)
   for (x in failures){
     let f = failures[x];
     for ( i in failCards){
