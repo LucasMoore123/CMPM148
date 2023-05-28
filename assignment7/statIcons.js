@@ -51,7 +51,7 @@ function checkFail() {
   resource_low = ["meat", "veggies", "stars"]
   resource_high = ["stars", "drama"]
     for (x in resource_low) {
-      if (resources[x].value < 0) {failures.push({rsource: resources[x].key, level: "low"})}
+      if (resources[x].value < 0) {failures.push({resource: resources[x].key, level: "low"})}
   }
   for (x in resource_high){
     if (resources[x].value > 100) {failures.push({resource: resources[x].key, level: "high"})}
